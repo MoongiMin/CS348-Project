@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant List</title>
+</head>
+<body>
+    <h1>Restaurant List</h1>
+    
+    {% for restaurant in restaurants %}
+        <h2>{{ restaurant.name }}</h2>
+        <p>Address: {{ restaurant.address }}</p>
+        <p>Website: {{ restaurant.website }}</p>
+        
+        {% for avg_rate in avg_rates %}
+            {% if avg_rate[0] == restaurant.website %}
+                <p>Rate: {{ avg_rate[1] }}</p>
+            {% endif %}
+        {% endfor %}
+        
+        <h3>Comments:</h3>
+        <p>{{ restaurant.comment }}</p>
+        
+        <form method="POST">
+            <input type="hidden" name="name" value="{{ restaurant.name }}">
+            <input type="hidden" name="address" value="{{ restaurant.address }}">
+            <input type="hidden" name="website" value="{{ restaurant.website }}">
+            <label for="rate">Update Rate (out of 5):</label><br>
+            <input type="number" id="rate" name="rate" min="0" max="5"><br>
+            <label for="comment">Comment:</label><br>
+            <textarea id="comment" name="comment"></textarea><br>
+            <input type="submit" value="Add Comment and Update the Rate">
+        </form>
+
+        <hr>
+    {% endfor %}
+</body>
+</html>

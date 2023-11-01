@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Restaurant</title>
+    <title>Restaurant Page</title>
 </head>
 <body>
     <h1>Restaurant Page</h1>
     <form method="POST">
         <label for="name">Restaurant Name:</label><br>
         <input type="text" id="name" name="name"><br>
+        <!-- Add fields for address, website, rate, comment -->
+        <label for="address">Address:</label><br>
+        <input type="text" id="address" name="address"><br>
+        <label for="website">Website:</label><br>
+        <input type="text" id="website" name="website"><br>
+        <label for="rate">Rate (out of 5):</label><br>
+        <input type="number" id="rate" name="rate" min="0" max="5"><br>
+        <label for="comment">Comment:</label><br>
+        <textarea id="comment" name="comment"></textarea><br>
         <input type="submit" value="Submit">
     </form>
+
+    <a href="/restaurant_list">Go to Restaurant List</a><br>
+    <!-- Add a link to delete_account.html -->
+    <a href="/delete_account">Go To Delete Account</a><br>
+
 </body>
 </html>
